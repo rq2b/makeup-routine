@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
     <title>Рутина</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://github.githubassets.com" />
@@ -139,12 +140,16 @@
       </ol>
     </main>
     <script>
+      const PLAY_THRESHOLD = 0.6;
+
+      const videos = document.querySelectorAll("video");
+
       const observer = new IntersectionObserver(
         (entries) => {
           for (const entry of entries) {
             const video = entry.target;
 
-            if (entry.intersectionRatio >= 0.6) {
+            if (entry.intersectionRatio >= PLAY_THRESHOLD) {
               video.play().catch(() => {});
             } else {
               video.pause();
@@ -152,13 +157,31 @@
           }
         },
         {
-          threshold: [0, 0.25, 0.6, 0.9],
+          threshold: PLAY_THRESHOLD,
         },
       );
 
-      document
-        .querySelectorAll("video")
-        .forEach((video) => observer.observe(video));
+      videos.forEach((video) => observer.observe(video));
+
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+          videos.forEach((video) => video.pause());
+          return;
+        }
+
+        videos.forEach((video) => {
+          const rect = video.getBoundingClientRect();
+
+          const visibleHeight =
+            Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
+
+          const ratio = visibleHeight / rect.height;
+
+          if (ratio >= PLAY_THRESHOLD) {
+            video.play().catch(() => {});
+          }
+        });
+      });
     </script>
   </body>
 </html>

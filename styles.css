@@ -1,8 +1,3 @@
-:root {
-  --page-max: 1080px;
-  --gap: 1rem;
-}
-
 * {
   box-sizing: border-box;
 }
@@ -10,6 +5,18 @@
 html {
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
+}
+
+body {
+  margin: 0;
+  background: #000;
+}
+
+.routine {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
 }
 
 li {
@@ -24,27 +31,6 @@ li {
   content-visibility: auto;
 }
 
-body {
-  margin: 0;
-  font:
-    16px/1.5 system-ui,
-    sans-serif;
-  background: #000;
-  color: #111;
-}
-
-.page {
-  width: min(100%, var(--page-max));
-  margin: 0 auto;
-}
-
-.routine {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-}
-
 video {
   display: block;
 
@@ -55,4 +41,10 @@ video {
   max-height: 100dvh;
 
   background: #000;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
