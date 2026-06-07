@@ -12,7 +12,7 @@ body {
   font:
     16px/1.5 system-ui,
     sans-serif;
-  background: #fff;
+  background: #000;
   color: #111;
 }
 
@@ -21,25 +21,12 @@ body {
   margin: 0 auto;
 }
 
-h1 {
-  margin: 0 0 16px;
-  font-size: 1.5rem;
-}
-
 .routine {
   list-style: none;
   padding: 0;
   margin: 0;
   display: grid;
-  gap: 24px;
-}
-
-figure {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 1080px;
+  gap: 48px;
 }
 
 video {
@@ -48,9 +35,4 @@ video {
   height: auto;
   aspect-ratio: 9 / 16;
   background: #000;
-}
-
-figcaption {
-  margin-top: 8px;
-  font-size: 1rem;
 }
