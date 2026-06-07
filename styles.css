@@ -8,11 +8,18 @@
 }
 
 html {
+  scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
 }
 
 li {
+  min-height: 100vh;
   scroll-snap-align: center;
+  scroll-snap-stop: always;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 body {
