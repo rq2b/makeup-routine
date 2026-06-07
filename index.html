@@ -5,60 +5,134 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Рутина</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://github.githubassets.com" />
+    <link rel="preload" as="video" href="media/1.mp4" type="video/mp4" />
   </head>
   <body>
     <main class="page">
       <ol class="routine">
         <li>
-          <video autoplay muted loop playsinline preload="auto">
+          <video
+            width="1080"
+            height="1920"
+            muted
+            loop
+            playsinline
+            preload="auto"
+            poster="media/1-poster.webp"
+          >
             <source src="media/1.mp4" type="video/mp4" />
           </video>
         </li>
 
         <li>
-          <video autoplay muted loop playsinline preload="metadata">
+          <video
+            width="1080"
+            height="1920"
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="media/2-poster.webp"
+          >
             <source src="media/2.mp4" type="video/mp4" />
           </video>
         </li>
 
         <li>
-          <video autoplay muted loop playsinline preload="metadata">
+          <video
+            width="1080"
+            height="1920"
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="media/3-poster.webp"
+          >
             <source src="media/3.mp4" type="video/mp4" />
           </video>
         </li>
 
         <li>
-          <video autoplay muted loop playsinline preload="metadata">
+          <video
+            width="1080"
+            height="1920"
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="media/4-poster.webp"
+          >
             <source src="media/4.mp4" type="video/mp4" />
           </video>
         </li>
 
         <li>
-          <video autoplay muted loop playsinline preload="metadata">
+          <video
+            width="1080"
+            height="1920"
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="media/5-poster.webp"
+          >
             <source src="media/5.mp4" type="video/mp4" />
           </video>
         </li>
 
         <li>
-          <video autoplay muted loop playsinline preload="metadata">
+          <video
+            width="1080"
+            height="1920"
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="media/5-1-poster.webp"
+          >
             <source src="media/5-1.mp4" type="video/mp4" />
           </video>
         </li>
 
         <li>
-          <video autoplay muted loop playsinline preload="metadata">
+          <video
+            width="1080"
+            height="1920"
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="media/6-poster.webp"
+          >
             <source src="media/6.mp4" type="video/mp4" />
           </video>
         </li>
 
         <li>
-          <video autoplay muted loop playsinline preload="metadata">
+          <video
+            width="1080"
+            height="1920"
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="media/7-poster.webp"
+          >
             <source src="media/7.mp4" type="video/mp4" />
           </video>
         </li>
 
         <li>
-          <video autoplay muted loop playsinline preload="metadata">
+          <video
+            width="1080"
+            height="1920"
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="media/8-poster.webp"
+          >
             <source src="media/8.mp4" type="video/mp4" />
           </video>
         </li>
@@ -67,18 +141,18 @@
     <script>
       const observer = new IntersectionObserver(
         (entries) => {
-          entries.forEach((entry) => {
+          for (const entry of entries) {
             const video = entry.target;
 
-            if (entry.intersectionRatio >= 0.4) {
+            if (entry.intersectionRatio >= 0.6) {
               video.play().catch(() => {});
             } else {
               video.pause();
             }
-          });
+          }
         },
         {
-          threshold: [0, 0.4],
+          threshold: [0, 0.25, 0.6, 0.9],
         },
       );
 
